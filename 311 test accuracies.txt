@@ -1,0 +1,218 @@
+----------------------------- RNG_SEED = 42 -----------------------------
+train_idx: 817  val_idx: 205  global_train_idx: 1022  global_val_idx: 147  global_test_idx: 293
+City order: ['Dubai', 'New York City', 'Paris', 'Rio de Janeiro']
+
+--- Sub-model hyperparameter search (train_idx -> val_idx) ---
+  [Q1_4] best: mode=batch alpha=0.1 val_acc=64.39%
+  [Q5] best: mode=batch alpha=0.05 val_acc=52.20%
+  [Q6] best: mode=batch alpha=0.05 val_acc=71.22%
+  [Q7] best: mode=batch alpha=0.3 val_acc=56.59%
+  [Q10] best: max_depth=None val_acc=58.54%
+
+--- Final refit on global_train_idx (70%), evaluated on global_val_idx (10%, held out) ---
+  [Q1_4] {'mode': 'batch', 'alpha': 0.1, 'epochs': 500} -> global_val acc=58.50%
+  [Q5] {'mode': 'batch', 'alpha': 0.05, 'epochs': 500} -> global_val acc=42.18%
+  [Q6] {'mode': 'batch', 'alpha': 0.05, 'epochs': 500} -> global_val acc=73.47%
+  [Q7] {'mode': 'batch', 'alpha': 0.3, 'epochs': 500} -> global_val acc=60.54%
+  [Q10] max_depth=None -> global_val acc=57.14%
+
+--- Meta-fusion alpha search (global_val split internally) ---
+  alpha=0.005  meta-tune acc=93.33%
+  alpha=0.01  meta-tune acc=93.33%
+  alpha=0.05  meta-tune acc=93.33%
+  alpha=0.1  meta-tune acc=93.33%
+  alpha=0.3  meta-tune acc=93.33%
+  alpha=0.5  meta-tune acc=93.33%
+  alpha=1.0  meta-tune acc=93.33%
+Chosen meta alpha = 0.005
+  Uniform-average on same tune split: 93.33%  (learned best: 93.33%)
+  -> Using UNIFORM averaging as the final combiner (decided on internal tune split, never on global_test_idx)
+
+================ FINAL HOLD-OUT (20%, global_test_idx) ================
+  Q1_4   solo test accuracy: 63.48%
+  Q5     solo test accuracy: 40.96%
+  Q6     solo test accuracy: 73.72%
+  Q7     solo test accuracy: 60.41%
+  Q10    solo test accuracy: 55.97%
+  Uniform-average ensemble test accuracy: 90.78%
+  LEARNED late-fusion test accuracy: 90.44%
+  >>> FINAL CHOSEN COMBINER: UNIFORM averaging  ->  test accuracy = 90.78% <<<
+=========================================================================
+
+Saved ensemble_weights.npz — size (KB): 17.2041015625
+
+----------------------------- RNG_SEED = 0 ------------------------------
+train_idx: 817  val_idx: 205  global_train_idx: 1022  global_val_idx: 147  global_test_idx: 293
+City order: ['Dubai', 'New York City', 'Paris', 'Rio de Janeiro']
+
+--- Sub-model hyperparameter search (train_idx -> val_idx) ---
+  [Q1_4] best: mode=sgd alpha=0.05 val_acc=71.22%
+  [Q5] best: mode=batch alpha=0.01 val_acc=48.78%
+  [Q6] best: mode=batch alpha=0.01 val_acc=77.56%
+  [Q7] best: mode=batch alpha=0.3 val_acc=52.20%
+  [Q10] best: max_depth=None val_acc=59.02%
+
+--- Final refit on global_train_idx (70%), evaluated on global_val_idx (10%, held out) ---
+  [Q1_4] {'mode': 'sgd', 'alpha': 0.05, 'epochs': 500} -> global_val acc=57.14%
+  [Q5] {'mode': 'batch', 'alpha': 0.01, 'epochs': 500} -> global_val acc=42.18%
+  [Q6] {'mode': 'batch', 'alpha': 0.01, 'epochs': 500} -> global_val acc=72.79%
+  [Q7] {'mode': 'batch', 'alpha': 0.3, 'epochs': 500} -> global_val acc=56.46%
+  [Q10] max_depth=None -> global_val acc=54.42%
+
+--- Meta-fusion alpha search (global_val split internally) ---
+  alpha=0.005  meta-tune acc=77.78%
+  alpha=0.01  meta-tune acc=80.00%
+  alpha=0.05  meta-tune acc=86.67%
+  alpha=0.1  meta-tune acc=86.67%
+  alpha=0.3  meta-tune acc=84.44%
+  alpha=0.5  meta-tune acc=82.22%
+  alpha=1.0  meta-tune acc=82.22%
+Chosen meta alpha = 0.05
+  Uniform-average on same tune split: 86.67%  (learned best: 86.67%)
+  -> Using UNIFORM averaging as the final combiner (decided on internal tune split, never on global_test_idx)
+
+================ FINAL HOLD-OUT (20%, global_test_idx) ================
+  Q1_4   solo test accuracy: 61.77%
+  Q5     solo test accuracy: 43.00%
+  Q6     solo test accuracy: 70.65%
+  Q7     solo test accuracy: 54.27%
+  Q10    solo test accuracy: 60.07%
+  Uniform-average ensemble test accuracy: 89.08%
+  LEARNED late-fusion test accuracy: 91.47%
+  >>> FINAL CHOSEN COMBINER: UNIFORM averaging  ->  test accuracy = 89.08% <<<
+=========================================================================
+
+Saved ensemble_weights.npz — size (KB): 16.5791015625
+
+
+----------------------------- RNG_SEED = 7 ------------------------------
+train_idx: 817  val_idx: 205  global_train_idx: 1022  global_val_idx: 147  global_test_idx: 293
+City order: ['Dubai', 'New York City', 'Paris', 'Rio de Janeiro']
+
+--- Sub-model hyperparameter search (train_idx -> val_idx) ---
+  [Q1_4] best: mode=batch alpha=0.05 val_acc=66.83%
+  [Q5] best: mode=batch alpha=0.1 val_acc=48.29%
+  [Q6] best: mode=batch alpha=0.01 val_acc=74.63%
+  [Q7] best: mode=batch alpha=0.1 val_acc=56.59%
+  [Q10] best: max_depth=20 val_acc=56.10%
+
+--- Final refit on global_train_idx (70%), evaluated on global_val_idx (10%, held out) ---
+  [Q1_4] {'mode': 'batch', 'alpha': 0.05, 'epochs': 500} -> global_val acc=61.22%
+  [Q5] {'mode': 'batch', 'alpha': 0.1, 'epochs': 500} -> global_val acc=47.62%
+  [Q6] {'mode': 'batch', 'alpha': 0.01, 'epochs': 500} -> global_val acc=70.07%
+  [Q7] {'mode': 'batch', 'alpha': 0.1, 'epochs': 500} -> global_val acc=57.82%
+  [Q10] max_depth=20 -> global_val acc=51.02%
+
+--- Meta-fusion alpha search (global_val split internally) ---
+  alpha=0.005  meta-tune acc=88.89%
+  alpha=0.01  meta-tune acc=91.11%
+  alpha=0.05  meta-tune acc=91.11%
+  alpha=0.1  meta-tune acc=91.11%
+  alpha=0.3  meta-tune acc=86.67%
+  alpha=0.5  meta-tune acc=86.67%
+  alpha=1.0  meta-tune acc=88.89%
+Chosen meta alpha = 0.01
+  Uniform-average on same tune split: 91.11%  (learned best: 91.11%)
+  -> Using UNIFORM averaging as the final combiner (decided on internal tune split, never on global_test_idx)
+
+================ FINAL HOLD-OUT (20%, global_test_idx) ================
+  Q1_4   solo test accuracy: 66.89%
+  Q5     solo test accuracy: 40.96%
+  Q6     solo test accuracy: 69.62%
+  Q7     solo test accuracy: 57.34%
+  Q10    solo test accuracy: 51.54%
+  Uniform-average ensemble test accuracy: 88.74%
+  LEARNED late-fusion test accuracy: 88.05%
+  >>> FINAL CHOSEN COMBINER: UNIFORM averaging  ->  test accuracy = 88.74% <<<
+=========================================================================
+
+Saved ensemble_weights.npz — size (KB): 13.9541015625
+
+
+----------------------------- RNG_SEED = 123 ----------------------------
+train_idx: 817  val_idx: 205  global_train_idx: 1022  global_val_idx: 147  global_test_idx: 293
+City order: ['Dubai', 'New York City', 'Paris', 'Rio de Janeiro']
+
+--- Sub-model hyperparameter search (train_idx -> val_idx) ---
+  [Q1_4] best: mode=batch alpha=0.005 val_acc=63.90%
+  [Q5] best: mode=batch alpha=0.005 val_acc=46.83%
+  [Q6] best: mode=batch alpha=0.05 val_acc=75.61%
+  [Q7] best: mode=batch alpha=0.1 val_acc=58.54%
+  [Q10] best: max_depth=None val_acc=51.71%
+
+--- Final refit on global_train_idx (70%), evaluated on global_val_idx (10%, held out) ---
+  [Q1_4] {'mode': 'batch', 'alpha': 0.005, 'epochs': 500} -> global_val acc=69.39%
+  [Q5] {'mode': 'batch', 'alpha': 0.005, 'epochs': 500} -> global_val acc=46.26%
+  [Q6] {'mode': 'batch', 'alpha': 0.05, 'epochs': 500} -> global_val acc=78.23%
+  [Q7] {'mode': 'batch', 'alpha': 0.1, 'epochs': 500} -> global_val acc=56.46%
+  [Q10] max_depth=None -> global_val acc=55.10%
+
+--- Meta-fusion alpha search (global_val split internally) ---
+  alpha=0.005  meta-tune acc=93.33%
+  alpha=0.01  meta-tune acc=93.33%
+  alpha=0.05  meta-tune acc=95.56%
+  alpha=0.1  meta-tune acc=95.56%
+  alpha=0.3  meta-tune acc=95.56%
+  alpha=0.5  meta-tune acc=95.56%
+  alpha=1.0  meta-tune acc=95.56%
+Chosen meta alpha = 0.05
+  Uniform-average on same tune split: 91.11%  (learned best: 95.56%)
+  -> Using LEARNED meta-fusion as the final combiner (decided on internal tune split, never on global_test_idx)
+
+================ FINAL HOLD-OUT (20%, global_test_idx) ================
+  Q1_4   solo test accuracy: 61.09%
+  Q5     solo test accuracy: 41.30%
+  Q6     solo test accuracy: 70.99%
+  Q7     solo test accuracy: 54.95%
+  Q10    solo test accuracy: 62.80%
+  Uniform-average ensemble test accuracy: 89.76%
+  LEARNED late-fusion test accuracy: 87.03%
+  >>> FINAL CHOSEN COMBINER: LEARNED meta-fusion  ->  test accuracy = 87.03% <<<
+=========================================================================
+
+Saved ensemble_weights.npz — size (KB): 16.5791015625
+
+
+----------------------------- RNG_SEED = 1024 ---------------------------
+
+train_idx: 817  val_idx: 205  global_train_idx: 1022  global_val_idx: 147  global_test_idx: 293
+City order: ['Dubai', 'New York City', 'Paris', 'Rio de Janeiro']
+
+--- Sub-model hyperparameter search (train_idx -> val_idx) ---
+  [Q1_4] best: mode=batch alpha=0.05 val_acc=63.90%
+  [Q5] best: mode=batch alpha=0.1 val_acc=47.32%
+  [Q6] best: mode=batch alpha=0.01 val_acc=74.15%
+  [Q7] best: mode=batch alpha=0.3 val_acc=55.61%
+  [Q10] best: max_depth=None val_acc=57.56%
+
+--- Final refit on global_train_idx (70%), evaluated on global_val_idx (10%, held out) ---
+  [Q1_4] {'mode': 'batch', 'alpha': 0.05, 'epochs': 500} -> global_val acc=63.27%
+  [Q5] {'mode': 'batch', 'alpha': 0.1, 'epochs': 500} -> global_val acc=53.06%
+  [Q6] {'mode': 'batch', 'alpha': 0.01, 'epochs': 500} -> global_val acc=69.39%
+  [Q7] {'mode': 'batch', 'alpha': 0.3, 'epochs': 500} -> global_val acc=54.42%
+  [Q10] max_depth=None -> global_val acc=52.38%
+
+--- Meta-fusion alpha search (global_val split internally) ---
+  alpha=0.005  meta-tune acc=86.67%
+  alpha=0.01  meta-tune acc=86.67%
+  alpha=0.05  meta-tune acc=86.67%
+  alpha=0.1  meta-tune acc=86.67%
+  alpha=0.3  meta-tune acc=84.44%
+  alpha=0.5  meta-tune acc=84.44%
+  alpha=1.0  meta-tune acc=82.22%
+Chosen meta alpha = 0.005
+  Uniform-average on same tune split: 88.89%  (learned best: 86.67%)
+  -> Using UNIFORM averaging as the final combiner (decided on internal tune split, never on global_test_idx)
+
+================ FINAL HOLD-OUT (20%, global_test_idx) ================
+  Q1_4   solo test accuracy: 63.82%
+  Q5     solo test accuracy: 46.76%
+  Q6     solo test accuracy: 72.70%
+  Q7     solo test accuracy: 55.97%
+  Q10    solo test accuracy: 60.07%
+  Uniform-average ensemble test accuracy: 89.08%
+  LEARNED late-fusion test accuracy: 88.74%
+  >>> FINAL CHOSEN COMBINER: UNIFORM averaging  ->  test accuracy = 89.08% <<<
+=========================================================================
+
+Saved ensemble_weights.npz — size (KB): 17.0791015625
